@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookstore</title>
+    <title>Geekbook</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,17 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <%= render 'layouts/navbar' %>
+
+    <div class="container main">
+
+     <div class="row">
+        <div class="col-md-9">
+          <%= yield %>
+        </div>
+        </div>
+      </div>
+
   </body>
 </html>

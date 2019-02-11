@@ -1,0 +1,8 @@
+<% unless @book.is_draft %>
+ <%= render 'book' %>
+<% else %>
+  <h2>The book is in draft. Check it later!</h2>
+  <% if current_user.id == @book.owner_id %>
+    <%= render 'book' %>
+  <% end %>
+<% end %>
