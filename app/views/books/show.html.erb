@@ -2,7 +2,7 @@
  <%= render 'book' %>
 <% else %>
   <h2>The book is in draft. Check it later!</h2>
-  <% if current_user.id == @book.owner_id %>
+  <% if current_user.id == @book.user_id %>
     <%= render 'book' %>
   <% end %>
 <% end %>

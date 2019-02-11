@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
   mount_uploader :envelope, EnvelopeUploader
 
-  # belongs_to :user
+  belongs_to :user
 
   has_many :taggings, :dependent => :destroy
   has_many :tags, through: :taggings, :dependent => :destroy
