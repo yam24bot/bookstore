@@ -6,6 +6,10 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def index_user
+    @books = Book.all
+  end
+
   def show
   end
 

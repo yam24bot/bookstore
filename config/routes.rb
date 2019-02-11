@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'book_file/index'
-  get 'book_file/new'
-  get 'book_file/create'
-  get 'book_file/destroy'
-
-  resources :resumes, only: [:index, :new, :create, :destroy]
+  get 'books/index_user'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 

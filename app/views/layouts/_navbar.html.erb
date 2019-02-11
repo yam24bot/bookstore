@@ -11,6 +11,9 @@
             <%= link_to "New review", new_book_path, class: "nav-link" %>
           </li>
           <li>
+            <%= link_to "My rewievs", books_index_user_path , class: "nav-link" %>
+          </li>
+          <li>
             <%= link_to "Hello, #{current_user.nickname}!",  current_user, class:"nav-link" %>
           </li>
           <li>
