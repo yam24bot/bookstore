@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   mount_uploader :envelope, EnvelopeUploader
+  mount_uploader :file, FileUploader
 
   belongs_to :user
 

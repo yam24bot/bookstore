@@ -9,10 +9,14 @@
   <p><%= f.label :description%></p>
   <p><%= f.text_area :description%></p>
 
-  <p><%= f.label :Genre%></p>
+  <p><%= f.label :Genre_comma_separated%></p>
   <p><%= f.text_field :all_tags%></p>
 
+  <p><%= f.label :envelope %></p>
   <p><%= f.file_field :envelope %></p>
+
+  <p><%= f.label :file %></p>
+  <p><%= f.file_field :file %></p>
 
 <p>  <%= f.submit "Save" %><p>
 
