@@ -23,12 +23,10 @@ class BooksController < ApplicationController
   def update_draft_status
     if @book.is_draft
       @book.update_attributes(is_draft: false)
-      flash.now[:alert] = "Book is undraft"
-      render :show
+      render :show, info: 'Book is undraft'
     else
       @book.update_attributes(is_draft: true)
-      flash.now[:alert] = "Book is draft"
-      render :show
+      render :show, info: 'Book is undraft'
     end
   end
 
@@ -38,8 +36,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
 
     if @book.save
-      redirect_to @book
-      flash[:danger] = "Conplete all fields"
+      redirect_to @book, success: 'Book succesfully created'
     else
       render :new
     end
@@ -47,8 +44,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update_attributes(book_params)
-      redirect_to @book
-      flash[:danger] = "Conplete all fields"
+      redirect_to @book, info: 'Book succesfully updated'
     else
       render :edit
     end
@@ -56,7 +52,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    redirect_to books_path
+    redirect_to books_path, success: 'Book successfully deleted'
   end
 
   private

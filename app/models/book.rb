@@ -17,5 +17,5 @@ class Book < ApplicationRecord
     end
   end
 
-  # validates :title, :author, :description, :envelope, presence: true
+  validates :title, :author, :envelope, :file, presence: true
 end

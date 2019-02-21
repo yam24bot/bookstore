@@ -1,5 +1,17 @@
-<h1><%=@user.email%></h1>
+<h1>User: <%=@user.nickname%></h1>
 
 <% if current_user.id == @user.id %>
-  <%= link_to "Edit", edit_user_path(@user) %>
+  <%= link_to "Edit", edit_user_registration_path %>
+<% end %><br><br>
+
+<h2><%=@user.nickname%>`s books:</h2>
+<% @books.each do |book|%>
+  <% if book.user_id == @user.id %>
+    <% unless book.is_draft %>
+    <p><%= link_to book.title, book_path(book) %></p>
+    <p><%= envelope_for(book, size: 80)%> <%= book.description %></p>
+    <p><%= raw book.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: "badge badge-primary"}.join(' ') %></p>
+    <hr>
+    <% end %>
+  <% end %>
 <% end %>
