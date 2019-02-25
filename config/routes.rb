@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :books do
     member do
+      get "books/download_pdf"
       put 'update_draft_status'
     end
   end

@@ -1,0 +1,6 @@
+- unless @book.is_draft
+  = render 'book'
+- else
+  %h2 The book is in draft. Check it later!
+  - if current_user&.id == @book.user_id
+    = render 'book'

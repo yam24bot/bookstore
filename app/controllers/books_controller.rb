@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :set_book, only:[:show, :edit, :update, :destroy, :update_draft_status]
+  before_action :set_book, only:[:download_pdf,:show, :edit, :update, :destroy, :update_draft_status]
 
   def index
     @books = Book.all
@@ -55,7 +55,23 @@ class BooksController < ApplicationController
     redirect_to books_path, success: 'Book successfully deleted'
   end
 
+  def download_pdf
+  send_file(
+    "#{Rails.root}/public/#{@book.file.url}",
+    filename: "#{@book.author} - #{@book.title}",
+    type: "application/pdf"
+  )
+  end
+
   private
+
+  def generate_pdf(client)
+    Prawn::Document.new do
+      text client.name, align: :center
+      text "Address: #{client.address}"
+      text "Email: #{client.email}"
+    end.render
+  end
 
   def set_book
     @book = Book.find(params[:id])

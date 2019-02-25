@@ -1,0 +1,21 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.static-top
+  .container
+    = link_to "GB", root_url, class: "navbar-brand"
+    %button.navbar-toggler(aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" data-target="#navbarResponsive" data-toggle="collapse" type="button")
+      %span.navbar-toggler-icon
+    #navbarResponsive.collapse.navbar-collapse
+      %ul.navbar-nav.ml-auto
+        - if current_user
+          %li
+            = link_to "New review", new_book_path, class: "nav-link"
+          %li
+            = link_to "My rewievs", books_index_user_path , class: "nav-link"
+          %li
+            = link_to "Hello, #{current_user.nickname}!",  current_user, class:"nav-link"
+          %li
+            = link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link"
+        - else
+          %li
+            = link_to "Login", new_user_session_path, class: "nav-link"
+          %li
+            = link_to "Sign up", new_user_registration_path, class: "nav-link"
