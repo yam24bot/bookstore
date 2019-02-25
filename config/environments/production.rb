@@ -51,5 +51,5 @@ Rails.application.configure do
   password: "123321vhost"
   }
 
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 end
