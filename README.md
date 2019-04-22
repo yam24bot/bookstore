@@ -1,1 +1,12 @@
-Тестовое задания для SS. Прошлая версия проекта: https://github.com/yam24bot/geekbook
+#Job statuses
+In the job.rb model, eight statuses with such parameters are responsible for the work:
+```ruby
+    state :draft, initial: true
+    state :published
+    state :accepted
+    state :in_progress
+    state :finished
+    state :invoiced
+    state :closed
+    state :cancelled
+```
